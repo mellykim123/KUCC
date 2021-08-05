@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>코로나 라이브 전국</title>
-  <script></script>
-</head>
+<html>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+</style>
+
 <body>
-  
+  <h1>The XMLHttpRequest Object</h1>
+  <button type="button" onclick="loadDoc()">Get my CD collection</button>
+  <br><br>
+  <table id="demo"></table>
+  <script>
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          myFunction(this);
+        }
+      };
+      xhttp.open("GET", "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=ARyzcNUgwHv4UkTLHubzf1ziDn9XZ6jO6w%2FoI%2B%2BND%2BtxGVsj5f%2FsVzIMKi6Uxcgdc8s%2B2n7V6UZAnq4vUWy58A%3D%3D&pageNo=1&numOfRows=10&startCreateDt=20200410&endCreateDt=20200410", true);
+      xhttp.send();
+    }
+    function myFunction(xml) {
+      
+    }
+  </script>
 </body>
+
 </html>
