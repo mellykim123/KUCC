@@ -1,0 +1,18 @@
+.navigator_banner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+.navigator_section{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin: 0px 40px;
+}
+.navigator{
+  width: 510px;
+  height: 90px;
+  box-sizing: border-box;
+}

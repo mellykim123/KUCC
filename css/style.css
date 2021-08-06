@@ -1,3 +1,5 @@
+@import "./components/nav-bar.css";
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -8,4 +10,5 @@ th, td {
 }
 body{
   background-color: #fafafa;
+  margin: 30px 35px;
 }
