@@ -8,8 +8,6 @@
 .smallscreen-result span {
     display: block;
 }
-
-
 .smallscreen-result , .bigscreen-result , .graph-picture, .add-graph, .graph-number, 
 .extra-information {
     border: 1px solid rgba(0,0,0,0.5);
@@ -18,4 +16,32 @@
     text-align: center;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+.infected-patients span:nth-child(2) {
+    color:red;
+}
+.infected-patients span:last-child {
+    color: red; 
+    background-color: rgba(248, 120, 120, 0.6);
+    border-radius: 5px;
+}
+.deceased-patients span:last-child {
+    background-color: rgba(145, 141, 141, 0.938);
+    border-radius: 5px;
+}
+.cured-patients span:nth-child(2) {
+    color:green;
+}
+.cured-patients span:last-child {
+    color: green; 
+    background-color: rgba(171, 224, 166, 0.6);
+    border-radius: 5px;
+}
+.tested-patients span:nth-child(2) {
+    color:blue;
+}
+.tested-patients span:last-child {
+    color: blue ;
+    background-color: rgba(166, 166, 247, 0.3);
+    border-radius: 5px;
 }
