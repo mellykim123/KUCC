@@ -1,0 +1,21 @@
+.smallscreen-result  {
+    justify-content: space-around;
+    display: flex;
+}
+.smallscreen-result > div {
+    margin: 10px 30px;
+}
+.smallscreen-result span {
+    display: block;
+}
+
+
+.smallscreen-result , .bigscreen-result , .graph-picture, .add-graph, .graph-number, 
+.extra-information {
+    border: 1px solid rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
