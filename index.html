@@ -66,7 +66,29 @@
         This is the bigscreen-result
     </div>
     <div class ="graph-picture">
-        This is the graph-picture
+      <div class ="select-categories">
+        <select name = 'data-categories1'>
+            <option value = 'infected'> 확진자 </option>
+            <option value = 'deceased'>사망자</option>
+            <option value = 'tested'>검사자</option>
+            <option value = "infected-rated">확진율</option>
+            <option value = "cured">완치자</option> 
+        </select>
+        <select name = 'data-categories2'>
+            <option value = 'real-time'> 실시간 </option>
+            <option value = 'daily'>일별</option>
+            <option value = 'weekly'>주별</option>
+            <option value = "monthly">월별</option>
+            <option value = "total">누적</option> 
+        </select>
+        <select name = 'data-categories3'>
+            <option value = 'yesterday'> 어제 </option>
+            <option value = 'oneweek-ago'>1주전</option>
+            <option value = 'twoweeks-ago'>2주전</option>
+            <option value = "onemonth-ago">1달전</option>
+        </select>
+        
+    </div>
     </div>
     <button class = "add-graph">
         + 그래프 추가
