@@ -10,7 +10,7 @@
 }
 
 
-.smallscreen-result , .bigscreen-result , .graph-picture, .add-graph, .graph-number, 
+.smallscreen-result, .graph-picture, .add-graph, .graph-number, 
 .extra-information {
     border: 1px solid rgba(0,0,0,0.5);
     display: flex;
@@ -18,4 +18,27 @@
     text-align: center;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.bigscreen-result{
+    text-align: center;
+    width: 510px;
+    height: 110px;
+    box-sizing: border-box;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+.big_screen_main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.pastdays_infected{
+    display: flex;
+    align-items: center;
+}
+.today_infected{
+    display: flex;
+    flex-direction: column;
 }
