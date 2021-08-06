@@ -2,9 +2,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  
+  margin-bottom: 20px; 
 }
+.navigator_title{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navigator_subtitle{
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.navigator_selected{
+  color: black;
+}
+
 .navigator_section{
   display: flex;
   justify-content:space-between;
@@ -15,4 +29,14 @@
   width: 510px;
   height: 90px;
   box-sizing: border-box;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px 30px;
+}
+#title_Corona{
+  margin-right: 5px;
+}
+
+#title_Live{
+  color: #6170e4;
 }
