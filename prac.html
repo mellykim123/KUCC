@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<h2 id="h2_text"></h2>
+
+
+
+  <script type="text/javascript">
+  var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + 'ARyzcNUgwHv4UkTLHubzf1ziDn9XZ6jO6w%2FoI%2B%2BND%2BtxGVsj5f%2FsVzIMKi6Uxcgdc8s%2B2n7V6UZAnq4vUWy58A%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+    queryParams += '&' + encodeURIComponent('startCreateDt') + '=' + encodeURIComponent('20200410'); /**/
+    queryParams += '&' + encodeURIComponent('endCreateDt') + '=' + encodeURIComponent('20200410'); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4) {
+        
+      }
+    };
+    xhr.send('');
+
+    function myFunction(xml) {
+        var xmlDoc = xml.responseXML;
+
+        var GUBUN = xmlDoc.getElementsByTagName("items")[0].firstChild.data;
+        document.getElementById("h2_text").innerHTML = `${GUBUN}`;
+
+      }
+  </script>
+  <script type="text/javascript">
+
+    const key = "ARyzcNUgwHv4UkTLHubzf1ziDn9XZ6jO6w%2FoI%2B%2BND%2BtxGVsj5f%2FsVzIMKi6Uxcgdc8s%2B2n7V6UZAnq4vUWy58A%3D%3D";
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          myFunction(this);
+        }
+      };
+      xhttp.open("GET", `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${key}&pageNo=1&numOfRows=10&startCreateDt=20200410&endCreateDt=20200410`, true);
+      xhttp.send();
+    }
+    function myFunction(xml) {
+      var i;
+      var xmlDoc = xml.responseXML;
+
+      var GUBUN = xmlDoc.getElementsByTagName("items")[0].firstChild.data;
+      document.getElementById("corona_table").innerHTML = `<td>${GUBUN}<td>`;
+
+    }
+</body>
+</html>
