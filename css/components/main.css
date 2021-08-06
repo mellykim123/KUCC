@@ -21,6 +21,8 @@
 }
 
 .bigscreen-result{
+    display: flex;
+    justify-content: center;
     text-align: center;
     width: 510px;
     height: 110px;
@@ -29,6 +31,8 @@
     border-radius: 20px;
 }
 .big_screen_main{
+    width: 510px;
+    margin: 10px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
