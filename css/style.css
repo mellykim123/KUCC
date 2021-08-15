@@ -1,5 +1,6 @@
 @import "./components/nav-bar.css";
 @import "./components/main.css";
+@import "./components/bigscreen.css";
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
