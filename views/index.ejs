@@ -30,9 +30,28 @@
     </div>
 
     <div id="current">현재 위치</div>
+
+    <div id="0" class="cities"></div>
+    <div id="1" class="cities"></div>
+    <div id="2" class="cities"></div>
+    <div id="3" class="cities"></div>
+    <div id="4" class="cities"></div>
+    <div id="5" class="cities"></div>
+    <div id="6" class="cities"></div>
+    <div id="7" class="cities"></div>
+    <div id="8" class="cities"></div>
+    <div id="9" class="cities"></div>
+    <div id="10" class="cities"></div>
+
     <div id="map" style="width: 100%; height: 100vh"></div>
     <script type="text/javascript" src="/data/data.js"></script>
     <script>
+      for (var i = 0; i < 11; i++) {
+        document.getElementById(
+          i
+        ).innerHTML = `${data[i].title}\n${data[i].content}\n${data[i].date}`
+      }
+
       var mapOptions = {
         center: new naver.maps.LatLng(37.3595704, 127.105399),
         zoom: 10,
@@ -54,10 +73,10 @@
           },
         })
         var content = `<div class = 'infowindow_wrap'>
-    <div class ='infowindow_title'>${target.title}</div>
-    <div class ='infowindow_content'>${target.content}</div>
-    <div class = 'infowindow_date'>${target.date}</div>
-    </div>`
+      <div class ='infowindow_title'>${target.title}</div>
+      <div class ='infowindow_content'>${target.content}</div>
+      <div class = 'infowindow_date'>${target.date}</div>
+      </div>`
 
         var infowindow = new naver.maps.InfoWindow({
           content: content,
@@ -70,8 +89,11 @@
       }
 
       for (var i = 0, ii = markerList.length; i < ii; i++) {
-        naver.maps.Event.addListener(map, "click", ClickMap(i)) //map 을 click 할 때 ClickMap 함수 호출
-        naver.maps.Event.addListener(markerList[i], "click", getClickHandler(i))
+        var marker = markerList[i]
+        var infowindow = infowindowList[i]
+
+        // naver.maps.Event.addListener(map, "click", ClickMap(i)) //map 을 click 할 때 ClickMap 함수 호출
+        // naver.maps.Event.addListener(markerList[i], "click", getClickHandler(i))
       }
       function ClickMap(i) {
         return function () {
