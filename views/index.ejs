@@ -54,7 +54,9 @@
 
       var mapOptions = {
         center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 10,
+        zoom: 7,
+        scrollWheel: false, // 마우스휠 안되게
+        draggable: false, // 확대축소 안되게
       }
 
       var map = new naver.maps.Map("map", mapOptions)
