@@ -13,18 +13,21 @@
 
 
   <?php
+  
   $ch = curl_init();
   $url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson'; /*URL*/
   $queryParams = '?' . urlencode('ServiceKey') . '=ARyzcNUgwHv4UkTLHubzf1ziDn9XZ6jO6w%2FoI%2B%2BND%2BtxGVsj5f%2FsVzIMKi6Uxcgdc8s%2B2n7V6UZAnq4vUWy58A%3D%3D'; /*Service Key*/
+  
   $queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
   $queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
-  $queryParams .= '&' . urlencode('startCreateDt') . '=' . urlencode('20210811'); /**/
-  $queryParams .= '&' . urlencode('endCreateDt') . '=' . urlencode('20210811'); /**/
+  $queryParams .= '&' . urlencode('startCreateDt') . '=' . urlencode('20210816'); /**/
+  $queryParams .= '&' . urlencode('endCreateDt') . '=' . urlencode('20210816'); /**/
 
   curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
   curl_setopt($ch, CURLOPT_HEADER, FALSE);
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+  
   $response = curl_exec($ch);
   curl_close($ch);
 
@@ -51,7 +54,7 @@
   foreach ($items as $item) {
     $Today_def[$i] = $item->incDec;
     $Total_def[$i] = $item->defCnt;
-
+    $gubun_arr[$i] = $item->gubun;
     $Death_cnt[$i] = $item->deathCnt;
 
     $Total_care[$i] = $item->isolClearCnt;
@@ -73,8 +76,9 @@
       <?php
 
       $j = 0;
-      while ($j < count($Today_def)) {
-        echo "<td>{$Today_def[$j]}</td>";
+      while ($j < count($gubun_arr))
+      {
+        echo "<td>{$gubun_arr[$j]}</td>";
         $j++;
       }
 

@@ -1,3 +1,76 @@
+<?php
+  
+  
+  $ch = curl_init();
+  $url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson'; /*URL*/
+  $queryParams = '?' . urlencode('ServiceKey') . '=ARyzcNUgwHv4UkTLHubzf1ziDn9XZ6jO6w%2FoI%2B%2BND%2BtxGVsj5f%2FsVzIMKi6Uxcgdc8s%2B2n7V6UZAnq4vUWy58A%3D%3D'; /*Service Key*/
+  
+  // 오늘 거 받아오기
+  $queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
+  $queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('10'); /**/
+  $queryParams .= '&' . urlencode('startCreateDt') . '=' . urlencode('20210815'); /**/
+  $queryParams .= '&' . urlencode('endCreateDt') . '=' . urlencode('20210816'); /**/
+
+  curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  curl_setopt($ch, CURLOPT_HEADER, FALSE);
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+  $response = curl_exec($ch);
+  curl_close($ch);
+  $object = simplexml_load_string($response);
+
+  $gubun_arr = array();
+
+  // 오늘 확진자
+  $Today_def = array();
+  $Today_def_change = array();
+  
+  // 지역 총 확진자
+  $Total_def = array();
+  $Total_def_change = array();
+  
+  // 사망자
+  $Death_cnt = array();
+  $Death_cnt_change = array();
+  
+  // 완치자
+  $Total_care = array();
+  $Total_care_change = array();
+
+  // 10만명당 확진자
+  $qurRate = array();
+
+
+  $items = $object->body->items->item;
+
+  $i = 0;
+
+  foreach ($items as $item) {
+    if($i < 19){
+    $Today_def[$i] = $item->incDec; // 오늘
+    $Total_def[$i] = $item->defCnt; // 총
+    $gubun_arr[$i] = $item->gubun; // 지역명
+    $Death_cnt[$i] = $item->deathCnt; // 사망자
+
+    $Total_care[$i] = $item->isolClearCnt; //완치자
+
+    $qurRate[$i] = $item->qurRate; //10만명당
+    $i += 1;
+    }
+    else{
+      $Today_def_change[$i-19] = ($item->incDec - $Today_def[$i-19]);
+      $Total_def_change[$i-19] = ($item->defCnt - $Total_def[$i-19]);
+      $Death_cnt_change[$i-19] = ($item->deathCnt - $Death_cnt[$i-19]);
+      $Total_care_change[$i-19] = ($item->isolClearCnt - $Total_care[$i-19]);
+      $i +=1;
+
+    }
+  }
+  
+  
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,8 +201,75 @@
     <div class="graph-number">
       그래프 수치
     </div>
-    <div class="extra-information">
-      추가 정보
+    <div class="total_chart">
+      <div class="total_chart_navigator"></div>
+      <div class="total_chart_table">
+        <table>
+          <tr class="table_head">
+            <th>지역</th>
+            <th>오늘 확진자</th>
+            <th>총 확진자</th>
+            <th>총 사망자</th>
+            <th>총 완치자</th>
+            <th>10만명당 확진자</th>
+          </tr>
+          <?php
+          
+          
+          $j = 0;
+          while ($j < count($gubun_arr))
+          
+          {
+            echo "<tr>";
+            echo "<td>{$gubun_arr[$j]}</td>";
+            
+            
+            
+            
+            
+            echo "<td>
+            <span>{$Today_def[$j]}</span>
+            <span class='Today_def_change_{$j}'>
+            {$Today_def_change[$j]}
+            </span>
+            </td>";
+
+            echo "<td><span>{$Total_def[$j]}</span><span>{$Total_def_change[$j]}</span></td>";
+            echo "<td><span>{$Death_cnt[$j]}</span><span>{$Death_cnt_change[$j]}</span></td>";
+            echo "<td><span>{$Total_care[$j]}</span><span>{$Total_care_change[$j]}</span></td>";
+            echo "<td>{$qurRate[$j]}</td>";
+            $j++;
+            echo "</tr>";
+          
+          
+          
+          
+          }
+
+          $j=0;
+
+          while ($j < count($gubun_arr))
+          {
+            echo "<script>
+            if({$Today_def_change[$j]}>0)
+            {document.querySelector('.Today_def_change_{$j}').style.backgroundColor='red';
+          }
+            else if({$Today_def_change[$j]}<0){
+            document.querySelector('.Today_def_change_{$j}').style.backgroundColor='blue';
+            }
+            else{
+              document.querySelector('.Today_def_change_{$j}').style.backgroundColor='green';
+            }
+            </script>";
+            $j++;
+          }
+          
+          ?>
+        </table>
+      </div>
+      <script>
+        `Today_def_change_${i}`
+      </script>
     </div>
   </div>
   <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous">
@@ -137,3 +277,4 @@
 </body>
 
 </html>
+
