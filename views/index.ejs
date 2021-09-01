@@ -52,11 +52,11 @@
     <div id="map" style="width: 100%; height: 100vh"></div>
     <script type="text/javascript" src="/data/data.js"></script>
     <script>
-      for (var i = 0; i < 17; i++) {
-        document.getElementById(
-          i
-        ).innerHTML = `${data[i].title}\n${data[i].content}\n${data[i].date}`
-      }
+      // for (var i = 0; i < 17; i++) {
+      //   document.getElementById(
+      //     i
+      //   ).innerHTML = `${data[i].title}\n${data[i].content}\n${data[i].date}`
+      // }
 
       var mapOptions = {
         center: new naver.maps.LatLng(37.3595704, 127.105399),
@@ -76,7 +76,7 @@
           map: map,
           position: latlng,
           icon: {
-            content: "<div class = 'marker'></div>",
+            content: `"<div class = 'marker'></div>","<div class = 'cities'>${target.title}:${target.content}</div>"`,
             anchor: new naver.maps.Point(12, 12), //중심좌표 왜냐하면 24px 24px 이니까
           },
         })
