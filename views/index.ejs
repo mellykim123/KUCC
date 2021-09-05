@@ -31,7 +31,7 @@
 
     <div id="current">현재 위치</div>
 
-    <div id="map" style="width: 100%; height: 100vh"></div>
+    <div id="map" style="width: 1300px; height: 1100px"></div>
     <script type="text/javascript" src="/data/data.js"></script>
     <script>
       // for (var i = 0; i < 17; i++) {
@@ -58,7 +58,7 @@
           map: map,
           position: latlng,
           icon: {
-            content: `"<div class = 'marker'></div>","<div class = 'cities'>${target.title}:${target.content}</div>"`, //  도시랑 감염자 인구  marker 에 넣기
+            content: `"<div class = 'marker'></div>","<div class = 'cities'>${target.title}<br>${target.content}<br>${target.changes}</div>"`, //  도시랑 감염자 인구  marker 에 넣기
             anchor: new naver.maps.Point(12, 12), //중심좌표 왜냐하면 24px 24px 이니까
           },
         })
