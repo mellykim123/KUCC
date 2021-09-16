@@ -31,7 +31,7 @@
 
     <div id="current">현재 위치</div>
 
-    <div id="map" style="width: 1300px; height: 1100px"></div>
+    <div id="map" style="width: 100%; height: 1100px"></div>
     <script type="text/javascript" src="/data/data.js"></script>
     <script>
       // for (var i = 0; i < 17; i++) {
@@ -41,8 +41,8 @@
       // }
 
       var mapOptions = {
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 7,
+        center: new naver.maps.LatLng(35.66935002950228, 127.99849843204903),
+        zoom: 8,
         scrollWheel: false, // 마우스휠 안되게
         draggable: false, // 확대축소 안되게
       }
@@ -50,7 +50,6 @@
       var map = new naver.maps.Map("map", mapOptions)
       var markerList = []
       var infowindowList = []
-
       for (var i in data) {
         var target = data[i]
         var latlng = new naver.maps.LatLng(target.lat, target.lng)
@@ -58,10 +57,30 @@
           map: map,
           position: latlng,
           icon: {
-            content: `"<div class = 'marker'></div>","<div class = 'cities'>${target.title}<br>${target.content}<br>${target.changes}</div>"`, //  도시랑 감염자 인구  marker 에 넣기
+            content: `<div class = 'marker'></div><div class = 'cities'><div class = 'cities-title'>${target.title}</div><div class = 'cities-content'>${target.content}명</div><div id=number[${i}]>${target.changes}</div></div>`, //  도시랑 감염자 인구  marker 에 넣기
             anchor: new naver.maps.Point(12, 12), //중심좌표 왜냐하면 24px 24px 이니까
           },
         })
+
+        var number = document.getElementById(`number[${i}]`)
+
+        if (parseInt(target.changes) > 0) {
+          number.classList.add("num-up")
+        } else if (parseInt(target.changes) < 0) {
+          number.classList.add("num-down")
+        } else {
+          number.classList.add("num-zero")
+        }
+        // if (number.classList.contains("num-up")) {
+        //   number.classList.remove("num-up")
+        // }
+        // if (number.classList.contains("num-down")) {
+        //   number.classList.remove("num-down")
+        // }
+        // if (number.classList.contains("numup")) {
+        //   number.classList.remove("num-zero")
+        // }
+
         var content = `<div class = 'infowindow_wrap'>
       <div class ='infowindow_title'>${target.title}</div>
       <div class ='infowindow_content'>${target.content}</div>

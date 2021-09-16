@@ -131,9 +131,27 @@ body {
   background: black;
   opacity: 0.7;
   font-size: 10px;
-  color: white;
   border-radius: 5px;
   padding: 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   text-align: center;
+}
+.cities-title {
+  color: rgba(255, 255, 255, 0.7);
+}
+.cities-content {
+  font-size: 13px;
+  color: white;
+}
+.num-up {
+  color: red;
+  font-weight: bold;
+}
+.num-down {
+  color: #7a95e5;
+  font-weight: bold;
+}
+.num-zero {
+  color: white;
+  font-weight: bold;
 }

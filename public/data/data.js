@@ -1,39 +1,39 @@
 var data = [
   {
     title: "제주",
-    content: "0명",
+    content: "100",
     date: "2021-08-15",
-    changes: "0",
+    changes: "1",
     lat: 33.98952409947705,
     lng: 126.54879930578782,
   },
   {
     title: "경남",
-    content: "0명",
+    content: "20",
     date: "2021-08-15",
-    changes: "0",
+    changes: "-1",
     lat: 35.481133919284275,
     lng: 128.17604311168364,
   },
   {
     title: "경북",
-    content: "0명",
+    content: "10",
     date: "2021-08-15",
-    changes: "0",
+    changes: "10",
     lat: 36.69805198028801,
     lng: 128.83416203275848,
   },
   {
     title: "전남",
-    content: "0명",
+    content: "30",
     date: "2021-08-15",
-    changes: "0",
+    changes: "-10",
     lat: 35.02553034734273,
     lng: 126.89824282154828,
   },
   {
     title: "전북",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 36.110674727875244,
@@ -41,7 +41,7 @@ var data = [
   },
   {
     title: "충남",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 36.72558993379912,
@@ -49,7 +49,7 @@ var data = [
   },
   {
     title: "충북",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 36.99450017431592,
@@ -57,7 +57,7 @@ var data = [
   },
   {
     title: "강원",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 37.93517712554204,
@@ -65,7 +65,7 @@ var data = [
   },
   {
     title: "경기",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 37.479763370407035,
@@ -73,7 +73,7 @@ var data = [
   },
   {
     title: "세종",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 36.95947581656182,
@@ -81,7 +81,7 @@ var data = [
   },
   {
     title: "울산",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 36.34967936027009,
@@ -89,7 +89,7 @@ var data = [
   },
   {
     title: "대전",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 36.44647603275021,
@@ -97,7 +97,7 @@ var data = [
   },
   {
     title: "광주",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 35.5575951101617,
@@ -105,7 +105,7 @@ var data = [
   },
   {
     title: "인천",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 37.75847197130644,
@@ -113,7 +113,7 @@ var data = [
   },
   {
     title: "대구",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 36.23347783471624,
@@ -121,7 +121,7 @@ var data = [
   },
   {
     title: "부산",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 35.86100131336862,
@@ -129,7 +129,7 @@ var data = [
   },
   {
     title: "검역",
-    content: "0명",
+    content: "0",
     date: "2021-08-15",
     changes: "0",
     lat: 37,
