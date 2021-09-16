@@ -267,6 +267,6 @@
   </div>
   <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous">
   </script>
-  <script type="text/javascript" src="./var_arr.js"></script>
+  <script type="text/javascript" src="./public/data/data.js"></script>
 </body>
 </html>
